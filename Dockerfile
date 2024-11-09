@@ -10,11 +10,11 @@ ENV STEAM_APP_NAME=satisfactory_server
 ENV STEAM_APP_DIR=${WORK_DIR}/${STEAM_APP_NAME}
 
 # Setup
-COPY "script/entry.sh" "${WORK_DIR}/entry.sh"
+COPY "script" "${WORK_DIR}"
 RUN mkdir -p "${WORK_DIR}"
 RUN mkdir -p "${STEAM_APP_DIR}"
-RUN chmod +x "${WORK_DIR}/entry.sh"
-RUN chown -R "${user}:${user}" "${WORK_DIR}/entry.sh" "${STEAM_APP_DIR}"
+RUN chmod +x "${WORK_DIR}/entry.sh" "${WORK_DIR}/install.sh" "${WORK_DIR}/start_server.sh"
+RUN chown -R "${USER}:${USER}" "${WORK_DIR}" "${STEAM_APP_DIR}"
 
 # Ports
 EXPOSE 7777/tcp 7777/udp

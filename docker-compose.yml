@@ -7,9 +7,10 @@ services:
       - '7777:7777/udp'
       - '7777:7777/tcp'
     volumes:
-      - './docker-satisfactory:/home/steam/docker'
+      - './satisfactory_gamefile:/home/steam/docker/satisfactory_server'
+      - './satisfactory_save:/home/steam/.config'
     environment:
-      - MAXPLAYERS=4
+      - MAXPLAYERS=16
     restart: unless-stopped
     deploy:
       resources:
