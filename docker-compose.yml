@@ -1,0 +1,19 @@
+services:
+  docker-satisfactory:
+    container_name: 'docker-satisfactory'
+    hostname: 'docker-satisfactory'
+    image: 'ghostvr/docker-satisfactory:latest'
+    ports:
+      - '7777:7777/udp'
+      - '7777:7777/tcp'
+    volumes:
+      - './docker-satisfactory:/home/steam/docker'
+    environment:
+      - MAXPLAYERS=4
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+        reservations:
+          memory: 4G
